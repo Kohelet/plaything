@@ -5,8 +5,8 @@ trait Trait {}
 
 impl Trait for u32 {}
 
-fn garage() -> impl Trait {
-	5
+fn garage() -> Box<dyn Trait> {
+	Box::new(5)
 }
 
 fn main() {
@@ -26,5 +26,5 @@ fn main() {
 
 	println!("Item is {}", item);
     println!("Hello, world!");
-    let x: impl Trait = garage();
+    let x: Box<dyn Trait> = garage();
 }
